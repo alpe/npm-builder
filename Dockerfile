@@ -8,8 +8,9 @@ RUN curl -LOks https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
     tar zxvf node-v$NODE_VERSION-linux-x64.tar.gz -C /opt
 ENV PATH="/opt/node-v$NODE_VERSION-linux-x64/bin:$PATH"
 
+COPY build.sh /
 VOLUME /src
 WORKDIR /src
 
-CMD ["npm", "intstall"]
+CMD ["/build.sh"]
 
